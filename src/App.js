@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import Card from './components/Card';
+import data from "./productData.json";
 
 function App() {
+  const {products} = data;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='grid grid-cols-4 gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 p-6'>
+    {(products || []).map((product,index) =>(
+          <Card product={product} key={index}/>
+    ))}
     </div>
+   
+    </>
   );
 }
 
